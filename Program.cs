@@ -24,3 +24,36 @@ while (timer.Elapsed.TotalSeconds < 5)
 
 Console.WriteLine($"Результат: {result}");
 Console.WriteLine($"Готово.");
+
+
+using System.Diagnostics;
+
+int threadCount = Environment.ProcessorCount;
+
+Console.WriteLine($"Логических процессоров: {threadCount}");
+Console.WriteLine($"Потоков запущено: {threadCount}");
+Console.WriteLine($"Запуск вычислений...");
+
+Thread[] threads = new Thread[threadCount];
+for (int i = 0; i < threadCount; i++) {
+    threads[i] = new Thread(() =>
+    {
+        long result = 0;
+        Stopwatch timer = Stopwatch.StartNew();
+
+        while (timer.Elapsed.TotalSeconds < 5)
+        {
+            for (int j = 0; j < 1_000_000; j++)
+            {
+                result += j * j;
+            }
+        }
+    });
+    threads[i].Start();
+}
+
+foreach (Thread thread in threads) {
+    thread.Join();
+}
+
+Console.WriteLine("Все потоки завершили работу.");

@@ -12,3 +12,4 @@ C:\Users\3-12Prepod\Lab04-Naumova\obj\Debug\net10.0\refint\Lab04-Naumova.dll
 C:\Users\3-12Prepod\Lab04-Naumova\obj\Debug\net10.0\Lab04-Naumova.pdb
 C:\Users\3-12Prepod\Lab04-Naumova\obj\Debug\net10.0\Lab04-Naumova.genruntimeconfig.cache
 C:\Users\3-12Prepod\Lab04-Naumova\obj\Debug\net10.0\ref\Lab04-Naumova.dll
+C:\Users\3-12Prepod\Lab04-Naumova\obj\Debug\net10.0\Lab04-Naumova.sourcelink.json
