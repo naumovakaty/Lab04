@@ -1,12 +1,10 @@
-﻿using System.Diagnostics;
+﻿using System;
 using System.Runtime.InteropServices;
+using System.Diagnostics;
 
 Console.WriteLine($"Логических процессоров: {Environment.ProcessorCount}");
-Console.WriteLine($"Архитектура процесса: :{RuntimeInformation.ProcessArchitecture}");
-Console.WriteLine($"64-битный процесс: {Environment.Is64BitOperatingSystem}");
-
-
-//using System.Diagnostics;
+Console.WriteLine($"Архитектура процесса:{RuntimeInformation.ProcessArchitecture}");
+Console.WriteLine($"64-битный процесс: {Environment.Is64BitProcess}");
 
 Console.WriteLine($"Логических процессоров: {Environment.ProcessorCount}");
 Console.WriteLine($"Запуск вычислений...");
@@ -21,21 +19,19 @@ while (timer.Elapsed.TotalSeconds < 5)
     }
 }
 
-
 Console.WriteLine($"Результат: {result}");
 Console.WriteLine($"Готово.");
 
 
-using System.Diagnostics;
-
-int threadCount = Environment.ProcessorCount;
+int threadCount = 2;
 
 Console.WriteLine($"Логических процессоров: {threadCount}");
 Console.WriteLine($"Потоков запущено: {threadCount}");
 Console.WriteLine($"Запуск вычислений...");
 
 Thread[] threads = new Thread[threadCount];
-for (int i = 0; i < threadCount; i++) {
+for (int i = 0; i < threadCount; i++)
+{
     threads[i] = new Thread(() =>
     {
         long result = 0;
@@ -52,7 +48,8 @@ for (int i = 0; i < threadCount; i++) {
     threads[i].Start();
 }
 
-foreach (Thread thread in threads) {
+foreach (Thread thread in threads)
+{
     thread.Join();
 }
 
