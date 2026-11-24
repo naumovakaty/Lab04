@@ -2,9 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Diagnostics;
 
-Console.WriteLine($"Логических процессоров: {Environment.ProcessorCount}");
-Console.WriteLine($"Архитектура процесса:{RuntimeInformation.ProcessArchitecture}");
-Console.WriteLine($"64-битный процесс: {Environment.Is64BitProcess}");
+/
 
 Console.WriteLine($"Логических процессоров: {Environment.ProcessorCount}");
 Console.WriteLine($"Запуск вычислений...");
@@ -37,7 +35,7 @@ for (int i = 0; i < threadCount; i++)
         long result = 0;
         Stopwatch timer = Stopwatch.StartNew();
 
-        while (timer.Elapsed.TotalSeconds < 5)
+        while (timer.Elapsed.TotalSeconds < 30)
         {
             for (int j = 0; j < 1_000_000; j++)
             {
